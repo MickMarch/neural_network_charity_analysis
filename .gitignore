@@ -9,6 +9,7 @@ __pycache__/
 # Cache/Misc
 .DS_Store
 copy*.*
+untitled_project/
 
 # Distribution / packaging
 .Python
