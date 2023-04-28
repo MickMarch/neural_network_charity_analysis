@@ -42,15 +42,23 @@ The model had the following:
 
 ### Evaluating the Model
 
-The model was not able to reach the goal of 75% accuracy with the above mentioned model. I was able to get to an accuracy of **72.53%** using the first model:
+The model was not able to reach the goal of 75% accuracy with the above mentioned model. I was able to get to an accuracy of **72.54%** using the first model:
 
 ![best_optimized_accuracy](./img/best_non_auto_accuracy.png)
 
-I tried changing activation methods, number of neurons, number of layers, and changing the scaling methods from Standard Scaler to Min Max Scaler, but the optimizations didn't get any better when I manually changed parameters.
+I tried changing activation methods, number of neurons, number of layers, and changing the scaling methods from Standard Scaler to Min Max Scaler, but the optimizations didn't improve anything when I manually changed parameters.
 
 ### Automating the Optimization
 
-I decided to try using the **Hyperband** automated optimizing method from the `keras_tuner` library. I used this method in 3 different ways. With the most successful one, I had also reduced the amount of bucketing I was doing to the data initially, just in case that the original bucket method was removing important data
+I decided to try using the **Hyperband** automated optimizing method from the `keras_tuner` library. I used this method in 3 different ways. With the most successful one, I had also reduced the amount of bucketing I was doing to the data initially, just in case that the original bucket method was removing important data.
+
+This model had the following:
+1. Input layer of **91 Neurons**, **ReLU** activation.
+2. Hidden layer of **21 Neurons**, **ReLU** activation.
+2. Hidden layer of **26 Neurons**, **ReLU** activation.
+2. Hidden layer of **6 Neurons**, **ReLU** activation.
+2. Hidden layer of **16 Neurons**, **ReLU** activation.
+4. Output layer of **1 Neuron**, **Sigmoid** activation.
 
 The results of that was a model with a **72.98%** accuracy:
 ![best_model_accuracy](./img/best_auto_accuracy.png)
@@ -59,7 +67,7 @@ The results of that was a model with a **72.98%** accuracy:
 
 Despite not getting to 75% accuracy, this model is still something I could trust with a 72.98% accuracy. Refining the model from the original 72.53% to the 72.98% was a great learning experience.
 
-The was that the model could be improved could be:
+Ways that the model could be improved:
 
 - Collect more data: The more data you have, the better your model can learn and generalize. You could collect more data on the charities and try to retrain the model.
 - Try different neural network structures: You could try different neural network structures, such as increasing or decreasing the number of hidden layers or neurons, or using a different combination of activation functions.
